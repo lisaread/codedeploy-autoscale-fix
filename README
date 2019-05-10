@@ -5,3 +5,9 @@ CodeDeploy is not aware of EC2 instance state. An Auto Scaling group associated 
 Solution:
 
 To avoid this, create a Lambda function that triggers when deployment state changes, START, FAILURE, STOP, SUCCESS occurs to either stop or resume scaling processes. 
+
+Resources used:
+
+1. Lambda function with pthon 2.7
+
+2. CloudWatch event rule trigger 
