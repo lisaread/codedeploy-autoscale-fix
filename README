@@ -1,0 +1,7 @@
+Issue:
+
+CodeDeploy is not aware of EC2 instance state. An Auto Scaling group associated with a Deployment group will always receive the last successful deployment, meaning if the instance scales mid-deployment it receives the last revision and not current being deployed.At the moment, when performing a CodeDeploy deployment to a deployment group that has an Auto Scaling Group associated with it, if the group meets any scale policy it will terminate or create instances. If a new instance is created during the deployment to an Deployment group that has this Auto Scaling Group associated, the instance will receive an old revision version, which causes a mismatch of versions on instances in the Deployment Group. Another problematic case is if an instance is terminated due to a scale event, and the instance was marked for deployment by CodeDeploy, the service will not be aware of this new state of the instance and deployment to that instance will fail.
+
+Solution:
+
+To avoid this, create a Lambda function that triggers when deployment state changes, START, FAILURE, STOP, SUCCESS occurs to either stop or resume scaling processes. 
