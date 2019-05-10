@@ -22,7 +22,6 @@ def codedeploy_check(MY_APP, MY_DG):
     return codedeploy_app
 
 #check if deployment group has asgs and append them to a list
-#returns a list
 def ASG(codedeploy):
   autoscaling_groups = []
   try:
