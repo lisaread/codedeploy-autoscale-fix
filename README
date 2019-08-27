@@ -11,3 +11,5 @@ Resources used:
 1. Lambda function with pthon 2.7
 
 2. CloudWatch event rule trigger 
+
+3. Alternatively, launch CloudFormation template with Lambda and CloudWatch trigger required
